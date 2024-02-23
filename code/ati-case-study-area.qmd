@@ -1,0 +1,72 @@
+---
+format: gfm
+---
+
+Let's get OSM data
+
+
+```{python}
+import osmnx as ox
+```
+
+We'll download OSM data in the 1 km boundary surrounding the British Library in London.
+
+```{python}
+# get the boundary polygon
+case_study_centre = ox.geocode_to_gdf('British Library, London, UK')
+case_study_polygon = ox.project_gdf(case_study_centre).unary_union
+case_study_1km_boundary = ox.project_gdf(case_study_centre).unary_union.buffer(1000)
+# Convert to gdf:
+
+```
+
+We'll install the OSM2AT package as follows
+
+```{bash}
+#| eval: false
+gh repo clone acteng/OSM2AT
+cd OSM2AT
+pip install -e .
+```
+
+```{python}
+import OSM2AT
+```
+
+```{python}
+bbox = case_study_1km_boundary
+
+lts_method = 'ottawa'
+self_learn_k = 5
+
+#Cycle network
+impute_method = 'mode-rule'
+mlp_train_params = {
+    'hidden_layer' : 100,
+    'n_epochs' : 50,
+    'batch_size' : 10
+}
+
+# Get osmnx cycle network:
+G = ox.graph_from_polygon(bbox, network_type='all_private', simplify=False, retain_all=True, truncate_by_edge=True, clean_periphery=True)
+
+G,edges = OSM2AT.get_cycle_network(bbox,impute_method,mlp_train_params,lts_method,self_learn_k)
+
+
+```
+
+```{python}
+
+```
+
+```{python}
+
+# Explore in interactive map with explore()
+
+```
+
+```{python}
+```
+
+```{python}
+```
