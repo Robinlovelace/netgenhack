@@ -1,5 +1,5 @@
 ---
-format: gfm
+format: docx
 title: "Network generation hackathon"
 ---
 
@@ -26,6 +26,13 @@ The rough timings will be as follows (these can be adjusted on the day):
 * 13:00 - 16:00: Hackathon
 
 * 16:00 - 17:00: Presentations and discussion
+
+# Hackathon ideas
+
+- Writing new rules to generate LTS or other measures of network quality from OSM data
+- Testing network simplification on OSM to see possible benefits from a policy perspective
+- Testing out od2net on different datasets and test cases
+- Get command-line interfaces to od2net working
 
 # Input datasets
 
