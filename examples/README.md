@@ -1,0 +1,26 @@
+
+
+In preparation for the hackathon it’s probably worth:
+
+- Taking a read of the
+  [github.com/Robinlovelace/netgenhack/](https://github.com/Robinlovelace/netgenhack/)
+  README and examples
+- Clone the repo and ‘join’, you should see an invite if you go to
+  https://github.com/Robinlovelace/netgenhack/invitations
+- Checking out the
+  [`od2net`](https://github.com/Urban-Analytics-Technology-Platform/od2net)
+  codebase and getting it running locally
+- Check out network simplification writings, in the
+  https://nptscot.github.io/networkmerge/ webset and the
+  [rnetmatch](https://github.com/nptscot/rnetmatch) repository
+- Read-up on OSM2AT at
+  [github.com/acteng/OSM2AT](https://github.com/acteng/OSM2AT)
+
+Any issues getting access to the repo or any other questions let me know
+in the [issue
+tracker](https://github.com/Robinlovelace/netgenhack/issues).
+
+## Data
+
+See [examples](examples) for some example data and config settings (work
+in progress).
