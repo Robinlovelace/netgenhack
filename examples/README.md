@@ -22,5 +22,6 @@ tracker](https://github.com/Robinlovelace/netgenhack/issues).
 
 ## Data
 
-See [examples](examples) for some example data and config settings (work
-in progress).
+See
+[examples](https://github.com/Robinlovelace/netgenhack/tree/main/examples)
+for some example data and config settings (work in progress).
