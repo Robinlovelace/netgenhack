@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "one_DL",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::27700" } },
+"features": [
+{ "type": "Feature", "properties": { "LSOA21CD.origin": "E01001659", "LSOA21CD.dest": "E01003013", "Total_count": 27 }, "geometry": { "type": "LineString", "coordinates": [ [ 540874.1152, 174523.173599998990539 ], [ 530861.496599999954924, 179623.78159999998752 ] ] } }
+]
+}
