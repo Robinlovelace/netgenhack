@@ -14,11 +14,13 @@ The event will be split into 2 parts: demo of existing tools plus
 sharing of ideas and the hackathon itself. The rough timings will be as
 follows (these can be adjusted on the day):
 
-- 11:00 - 12:00: Demo of existing tools and sharing of ideas
+- 11:00 - 11:05: Introduction and welcome (Robin Lovelace)
 
-  - 11:00 - 11:15: Demo of `od2net` tool developed at the ATI (Dustin
+- 11:05 - 12:00: Demo of existing tools and sharing of ideas
+
+  - 11:05 - 11:20: Demo of `od2net` tool developed at the ATI (Dustin
     Carlino)
-  - 11:15 - 11:30: Demo of network simplification and joining algorithms
+  - 11:20 - 11:30: Demo of network simplification and joining algorithms
     and prototype tools (Robin Lovelace)
   - 11:30 - 11:45: Demo of walkability, cyclability, accessibility and
     traffic stress estimation methods for routing and network
@@ -30,6 +32,15 @@ follows (these can be adjusted on the day):
 - 13:00 - 16:00: Hackathon
 
 - 16:00 - 17:00: Presentations and discussion
+
+# Hackathon ideas
+
+- Writing new rules to generate LTS or other measures of network quality
+  from OSM data
+- Testing network simplification on OSM to see possible benefits from a
+  policy perspective
+- Testing out od2net on different datasets and test cases
+- Get command-line interfaces to od2net working
 
 # Input datasets
 
