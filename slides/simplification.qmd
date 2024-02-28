@@ -1,0 +1,72 @@
+---
+title: Demo of network simplification and joining algorithms
+author: "Robin Lovelace"
+format: revealjs
+bibliography: references.bib
+---
+
+## Introduction
+
+Source: https://nptscot.github.io/networkmerge/paper.html
+
+![](images/paste-1.png)
+
+## Rasterisation?
+
+![](images/paste-2.png)
+
+Source: [@morgan2020]
+
+## 'Normal' simplification
+
+![](images/paste-3.png)
+
+## Network simplification steps
+
+![](images/paste-4.png)
+
+## Thinning
+
+![](images/paste-5.png)
+
+## Voronoi approach I
+
+![](images/paste-7.png)
+
+## Voronoi approach II
+
+![](images/paste-6.png)
+
+## Primal networks
+
+![](images/paste-8.png)
+
+## Joining networks
+
+-   Work in progress Rust crate + nascent R interface: <https://github.com/nptscot/rnetmatch>
+
+-   R function for joining networks: <https://docs.ropensci.org/stplanr/reference/rnet_merge.html>
+
+![](images/paste-10.png)
+
+## Use case
+
+Open source and open access Transport Scotland funded Network Planning Tool: <https://www.npt.scot/#8/55.953/-3.138>
+
+![](images/paste-9.png)
+
+## Hack ideas
+
+-   Use rnetmatch on the input datasets and test results
+
+-   Experimenting with parameter space of inputs into parenx functions
+
+-   Documentation, testing, bug identification in parenx and rnetmatch
+
+-   Dustin's ask: tool that takes input network and generate an output in web browser
+
+-   Blueskies: alternative network simplification algorithms, e.g. using shortest path
+
+## References
+
+##
