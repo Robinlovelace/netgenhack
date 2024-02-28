@@ -29,7 +29,14 @@ The rough timings will be as follows (these can be adjusted on the day):
 
 * 16:00 - 17:00: Presentations and discussion
 
-# Hackathon ideas
+# Modus operandi: how we work
+
+- To join the hackathon remotely join the Teams meeting (email Robin, Dustin or Chris for the link)
+- Focus on GitHub for issues: any questions welcome on the [issue tracker](https://github.com/Robinlovelace/netgenhack/issues)
+- Forking the repo and contributions welcome and encouraged for sharing code
+- Please don't commit and push big files to the repo: use releases instead, see https://github.com/Robinlovelace/netgenhack/releases for input datasets
+
+# Hackathon ideas (see slides for details)
 
 - Writing new rules to generate LTS or other measures of network quality from OSM data
 - Testing network simplification on OSM to see possible benefits from a policy perspective
