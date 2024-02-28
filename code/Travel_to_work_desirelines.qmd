@@ -1,0 +1,106 @@
+---
+title: "T2W_data"
+format: markdown_github
+---
+```{r}
+library(tidyverse)
+library(data.table)
+```
+
+## Loading
+Loading the census OA lookup
+
+data from (https://www.nomisweb.co.uk/sources/census_2021_od)[https://www.nomisweb.co.uk/sources/census_2021_od]
+```{r}
+OA_MSOA_lookup <- fread("c:/temp/OAs_to_LSOAs_to_MSOAs_to_LEP_to_LAD_(May_2022)_Lookup_in_England.csv") 
+```
+
+Filtering Greenwich
+```{r}
+Greenwich_lookup <- OA_MSOA_lookup[str_detect(MSOA21NM,"^Greenwich")]
+```
+
+Reading in the Travel to work data originating in Greenwich
+```{r}
+OA_data <- fread("C:/Temp/odwp/odwp01ew/ODWP01EW_OA.csv")
+OA_data_greenwich <- OA_data[`Output Areas code` %in% Greenwich_lookup$OA21CD] |> tibble()
+rm(OA_data)
+```
+
+```{r}
+codes <- OA_data_greenwich |> 
+  select(`Place of work indicator (4 categories) code`,`Place of work indicator (4 categories) label`) |> unique()
+```
+
+```{r}
+LSOA_TtW <- OA_data_greenwich |>
+  left_join(OA_MSOA_lookup |>
+              select(OA21CD, LSOA21CD),
+            c("Output Areas code" = "OA21CD")) |>
+  left_join(OA_MSOA_lookup |>
+              select(OA21CD, LSOA21CD),
+            c("OA of workplace code" = "OA21CD"),
+            suffix = c(".origin",".dest")) |> 
+  summarise(Total_count = sum(Count,na.rm = T),
+            .by = c(LSOA21CD.origin,LSOA21CD.dest,`Place of work indicator (4 categories) code`)) |> 
+  filter(`Place of work indicator (4 categories) code` == 3) |> 
+  select(-`Place of work indicator (4 categories) code`)
+```
+
+```{r}
+top30_OD <- LSOA_TtW |>
+  filter(LSOA21CD.origin!=LSOA21CD.dest) |> 
+  arrange(-Total_count) |> slice_max(Total_count,n = 30)
+```
+
+Loading LSOA centroid data
+```{r}
+library(sf)
+library(stplanr)
+LSOA_centroids <- st_read("c:/temp/LLSOA_Dec_2021_PWC_for_England_and_Wales_2022_1503021234159904115.geojson")
+```
+
+Getting the highest 30 OD pairs
+```{r}
+desire_lines <- od2line(top30_OD,
+        zones = LSOA_centroids[,2:4])
+```
+
+```{r,eval=FALSE}
+st_write(desire_lines,"desire_lines.geoJSON")
+```
+
+
+Filtering desire lines
+
+```{r}
+long_desire_lines <- desire_lines |>
+    filter(as.numeric(st_length(geometry))>6e3) |> 
+  slice_max(Total_count,n=1)
+```
+
+
+
+```{r}
+library(tmap)
+tmap_mode("view")
+
+tm_shape(long_desire_lines)+
+  tm_lines(col = "Total_count",
+           lwd = 2,
+           palette = "-viridis",
+           style = "jenks")
+```
+
+
+```{r,eval=FALSE}
+st_write(long_desire_lines,"one_DL.geoJSON")
+```
+
+
+
+
+
+
+
+
